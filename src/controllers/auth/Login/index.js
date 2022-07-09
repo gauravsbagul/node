@@ -1,5 +1,11 @@
-const response = require('../../../utils/response')
+import response from '../../../utils/response'
 
+/**
+ * @description: Login user
+ * @param {object} req - request object
+ * @param {object} res - response object
+ * @returns {object} - response object
+ */
 const login = async (req, res) => {
   try {
     const { mobileNumber, otp } = req.body

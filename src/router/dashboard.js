@@ -1,5 +1,5 @@
-const express = require('express')
-const { dashboard } = require('../controllers/dashboard')
+import express from 'express'
+import { dashboard } from '../controllers/dashboard'
 const dashboardRouter = express.Router()
 
 dashboardRouter.post('/saveData', dashboard)

@@ -8,7 +8,6 @@
  *
  * @description
  * Send the response to the client as JSON
- *
  * @returns {Object}
  *
  */
