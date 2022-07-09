@@ -4,4 +4,4 @@ const dashboardRouter = express.Router()
 
 dashboardRouter.post('/saveData', dashboard)
 
-module.exports = dashboardRouter
+export default dashboardRouter

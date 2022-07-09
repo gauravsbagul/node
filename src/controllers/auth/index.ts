@@ -1,3 +1,3 @@
 import login from './Login'
 
-module.exports = { login }
+export { login }

@@ -1,23 +1,24 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import express, { Application, Request, Response, NextFunction } from 'express'
-const bodyParser = require('body-parser')
-const path = require('path')
-const cors = require('cors')
+import bodyParser from 'body-parser'
+import path from 'path'
+import cors from 'cors'
 require('dotenv').config()
-const response = require('./utils/response')
-const auth = require('./router/auth')
-const dashboardRouter = require('./router/dashboard')
+import { response } from './utils/response'
+import auth from './router/auth'
+import dashboardRouter from './router/dashboard'
+import { logger } from './logger'
 
 const app: Application = express()
 const port = process.env.PORT || 5000
 
 app.use(cors())
-// app.use(bodyParser.json())
 app.use(bodyParser.json({ limit: '50mb' }))
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }))
 
 app.use('/', express.static(path.join())) //used in-case of single app, angular is folder which contains UI build
 
-app.use((_, res: Response, next: NextFunction) => {
+app.use((_: Request, res: Response, next: NextFunction) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, PUT, OPTIONS')
@@ -27,9 +28,14 @@ app.use((_, res: Response, next: NextFunction) => {
 app.use('/auth', auth)
 app.use('/dashboard', dashboardRouter)
 
-//code for single app
-app.use((_, res: Response) => {
-  return response(res, 200, true, 'Hello world!', {})
+app.use('/', (req: Request, res: Response) => {
+  logger.log({
+    level: 'info',
+    message: req.body.message,
+    data: { file: __filename }
+  })
+
+  return response({ res, statusCode: 200, message: 'Hello world!' })
 })
 
 app.listen(port, () => {
