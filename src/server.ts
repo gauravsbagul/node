@@ -8,6 +8,8 @@ import { response } from './utils/response'
 import auth from './router/auth'
 import dashboardRouter from './router/dashboard'
 import { logger } from './logger'
+import swaggerJSDoc from 'swagger-jsdoc'
+import swaggerUi from 'swagger-ui-express'
 
 const server: Application = express()
 
@@ -24,17 +26,42 @@ server.use((_: Request, res: Response, next: NextFunction) => {
   next()
 })
 
+//Extend : https://swagger.io/docs/specification/#infoObject
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: 'Node API',
+      version: '1.0.0',
+      description: 'Node API',
+      contact: {
+        name: 'Gaurav'
+      },
+      servers: ['http://localhost:5000']
+    }
+  },
+  // List of files to be processes. You can also set globs './routes/*.js'
+  apis: ['app.ts']
+}
+
+const swaggerDoc: object =
+  swaggerJSDoc(swaggerOptions)
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc))
+
 server.use('/auth', auth)
 server.use('/dashboard', dashboardRouter)
 
-server.use('/', (req: Request, res: Response) => {
-  logger.log({
+server.use('/', (req: Request,
+  res: Response) => {
+         logger.log({
     level: 'info',
-    message: req.body.message,
-    data: { file: __filename }
+    
+           
+           message: req.body.message,
+    data: { file: `src${__filename.split('src')[1]}` }
   })
 
   return response({ res, statusCode: 200, message: 'Hello world!' })
 })
+
 
 export default server

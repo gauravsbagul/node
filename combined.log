@@ -1,0 +1,10 @@
+{"level":"info","data":{"file":"C:\\System\\practice projects\\node\\src\\server.ts"},"timestamp":"2022-07-11T07:24:34.786Z"}
+{"message":{"level":"error","data":{"error":{},"file":"C:\\System\\practice projects\\node\\src\\controllers\\auth\\Login\\index.ts","from":"/auth/login"}},"level":"error","timestamp":"2022-07-11T07:24:45.696Z"}
+{"message":{"level":"error","data":{"error":{},"file":"C:\\System\\practice projects\\node\\src\\controllers\\auth\\Login\\index.ts","from":"/auth/login"}},"level":"error","timestamp":"2022-07-11T07:25:58.681Z"}
+{"message":{"level":"error","data":{"error":{},"file":"C:\\System\\practice projects\\node\\src\\controllers\\auth\\Login\\index.ts","from":"/auth/login"}},"level":"error","timestamp":"2022-07-11T07:27:23.109Z"}
+{"message":{"level":"error","data":{"error":{},"file":"C:\\System\\practice projects\\node\\src\\controllers\\auth\\Login\\index.ts","from":"/auth/login"}},"level":"error","timestamp":"2022-07-11T07:29:33.833Z"}
+{"message":{"level":"error","data":{"error":{},"file":"C:\\System\\practice projects\\node\\src\\controllers\\auth\\Login\\index.ts","from":"/auth/login"}},"level":"error","timestamp":"2022-07-11T07:47:43.018Z"}
+{"message":{"level":"error","data":{"error":{},"file":"C:\\System\\practice projects\\node\\src\\controllers\\auth\\Login\\index.ts","from":"/auth/login"}},"level":"error","timestamp":"2022-07-11T07:49:13.692Z"}
+{"message":{"level":"error","data":{"error":{},"file":"C:\\System\\practice projects\\node\\src\\controllers\\auth\\Login\\index.ts","from":"/auth/login"}},"level":"error","timestamp":"2022-07-11T07:49:36.321Z"}
+{"message":{"level":"error","data":{"error":{},"file":"src/\\controllers\\auth\\Login\\index.ts","from":"/auth/login"}},"level":"error","timestamp":"2022-07-11T07:50:24.879Z"}
+{"message":{"level":"error","data":{"error":{},"file":"src\\controllers\\auth\\Login\\index.ts","from":"/auth/login"}},"level":"error","timestamp":"2022-07-11T07:58:14.364Z"}

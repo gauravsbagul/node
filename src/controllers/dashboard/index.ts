@@ -17,11 +17,11 @@ export const dashboard = async (req: Request, res: Response) => {
     } else {
       return response({ res, statusCode: 401, message: 'No data Provided' })
     }
-  } catch (error: unknown) {
+  } catch (error: any) {
     logger.error({
       level: 'error',
       message: req.body.message,
-      data: { error, file: __filename, line: 42 }
+      data: { error, file: `src${__filename.split('src')[1]}`, line: 42 }
     })
     return reject({ res, statusCode: 500, message: 'Internal Server Error', error })
   }

@@ -1,5 +1,5 @@
 import { config, createLogger, format, transports } from 'winston'
-const { combine, timestamp, label, printf } = format
+const { combine, timestamp, printf } = format
 
 enum levels {
   error,
@@ -23,5 +23,7 @@ export const logger = createLogger({
     new transports.File({ filename: 'error.log', level: 'error' }),
     new transports.Console({ level: 'error' }),
     new transports.File({ filename: 'combined.log', level: 'info' })
-  ]
+  ],
+  exceptionHandlers: [new transports.File({ filename: 'exceptions.log' })],
+  rejectionHandlers: [new transports.File({ filename: 'rejections.log' })]
 })
