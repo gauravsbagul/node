@@ -43,25 +43,20 @@ const swaggerOptions = {
   apis: ['app.ts']
 }
 
-const swaggerDoc: object =
-  swaggerJSDoc(swaggerOptions)
+const swaggerDoc: object = swaggerJSDoc(swaggerOptions)
 server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc))
 
 server.use('/auth', auth)
 server.use('/dashboard', dashboardRouter)
 
-server.use('/', (req: Request,
-  res: Response) => {
-         logger.log({
+server.use('/', (req: Request, res: Response) => {
+  logger.log({
     level: 'info',
-    
-           
-           message: req.body.message,
+    message: req.body.message,
     data: { file: `src${__filename.split('src')[1]}` }
   })
 
   return response({ res, statusCode: 200, message: 'Hello world!' })
 })
-
 
 export default server
