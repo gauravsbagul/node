@@ -12,7 +12,13 @@
     "test": "test/**/*.test.ts"
   },
   "keywords": [],
-  "author": "Gaurav_Sunil_Bagul",
+  "author": "Gaurav Sunil Bagul",
+  "contributors": [
+    {
+      "name": "Gaurav Sunil Bagul",
+      "email": "gaurav.bagul@gslab.com"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.30.5",
